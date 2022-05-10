@@ -1,6 +1,10 @@
 import React from 'react';
 
-const CartProvider = props=>
-  {};
+const CartContext = React.createContext({
+  items: [],
+  totalAmount: 0,
+  addItem: (item) => {},
+  removeItem: (id) => {}
+});
 
-export default CartProvider;
+export default CartContext;
