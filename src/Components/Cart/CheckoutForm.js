@@ -9,7 +9,7 @@ const Checkout = (props) => {
         postalCode: true,
       });
   const isEmpty = (value) => value.trim() === '';
-  const isFiveChars = (value) => value.trim().length === 5;
+  const isFiveChars = (value) => value.trim().length === 6;
   const nameInputRef = useRef();
   const streetInputRef = useRef();
   const postalCodeInputRef = useRef();
@@ -44,6 +44,13 @@ const Checkout = (props) => {
     if (!formIsValid) {
       return;
     }
+
+    props.onConfirm({
+        name:enteredName,
+        street:enteredStreet,
+        city:enteredCity,
+        postal:enteredPostalCode
+    })
   };
   const nameControlClasses = `${classes.control} ${
     formInputsValidity.name ? '' : classes.invalid
